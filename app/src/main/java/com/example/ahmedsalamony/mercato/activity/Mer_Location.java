@@ -1,19 +1,27 @@
 package com.example.ahmedsalamony.mercato.activity;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.ahmedsalamony.mercato.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class Mer_Location extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    LatLng branch1,branch2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +31,38 @@ public class Mer_Location extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        TextView nady_navigation=(TextView)findViewById(R.id.txt_navidation_nady);
+        TextView radwan_navigation=(TextView)findViewById(R.id.txt_navidation_radwan);
+
+        nady_navigation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(branch1));
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(branch1, 17.0f));
+            }
+        });
+
+        radwan_navigation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(branch2));
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(branch2, 17.0f));
+
+            }
+        });
+
+        ImageView menu=(ImageView)findViewById(R.id.menu);
+        menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(Mer_Location.this,HomeActivity.class);
+                i.putExtra("where",1);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(i);
+            }
+        });
     }
 
 
@@ -39,11 +79,13 @@ public class Mer_Location extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+        Bitmap icon = BitmapFactory.decodeResource(getResources(),
+                R.drawable.location_icon);
         // Add a marker in Sydney and move the camera
-        LatLng branch1 = new LatLng(30.7921024, 31.0024722);
-        LatLng branch2 = new LatLng(30.7936133, 30.9961207);
-        mMap.addMarker(new MarkerOptions().position(branch1).title("Mercato cafe"));
-        mMap.addMarker(new MarkerOptions().position(branch2).title("Mercato cafe"));
+        branch1 = new LatLng(30.7921024, 31.0024722);
+        branch2 = new LatLng(30.7936133, 30.9961207);
+        mMap.addMarker(new MarkerOptions().position(branch1).title("Mercato cafe").icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_location_marker)));
+        mMap.addMarker(new MarkerOptions().position(branch2).title("Mercato cafe").icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_location_marker)));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(branch1));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(branch1, 15.0f));
     }

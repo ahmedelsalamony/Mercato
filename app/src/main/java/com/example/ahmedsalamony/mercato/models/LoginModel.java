@@ -11,12 +11,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class LoginModel implements Parcelable {
 
+
     String password,email;
-    Boolean success;
+    int api_status;
+    String api_message;
     @SerializedName("data")
     DataModel data;
-    String error;
 
+    public int getApi_status() {
+        return api_status;
+    }
+
+    public void setApi_status(int api_status) {
+        this.api_status = api_status;
+    }
+
+    public String getApi_message() {
+        return api_message;
+    }
+
+    public void setApi_message(String api_message) {
+        this.api_message = api_message;
+    }
 
     public String getPassword() {
         return password;
@@ -34,14 +50,6 @@ public class LoginModel implements Parcelable {
         this.email = email;
     }
 
-    public Boolean getSuccess() {
-        return success;
-    }
-
-    public void setSuccess(Boolean success) {
-        this.success = success;
-    }
-
     public DataModel getData() {
         return data;
     }
@@ -50,13 +58,6 @@ public class LoginModel implements Parcelable {
         this.data = data;
     }
 
-    public String getError() {
-        return error;
-    }
-
-    public void setError(String error) {
-        this.error = error;
-    }
 
     public LoginModel(String email, String password){
         this.email=email;
@@ -64,9 +65,9 @@ public class LoginModel implements Parcelable {
     }
 
     protected LoginModel(Parcel in) {
-        this.success = in.readByte() != 0;
+        this.api_status = in.readInt();
+        this.api_message=in.readString();
         this.data = in.readParcelable(LoginModel.DataModel.class.getClassLoader());
-        this.error=in.readString();
     }
 
     public static final Creator<LoginModel> CREATOR = new Creator<LoginModel>() {
@@ -89,13 +90,87 @@ public class LoginModel implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeByte((byte) (this.success ? 1 : 0));
+        dest.writeInt(this.api_status);
+        dest.writeString(this.api_message);
         dest.writeParcelable(this.data, flags);
     }
 
     public static class DataModel implements Parcelable{
 
+    /*{
+        "api_status": 1,
+            "api_message": "success",
+            "data": {
+        "id": 13,
+                "name": "ahmedc",
+                "email": "ahmedc@ahmedc.com",
+                "photo": null,
+                "birthday": "1982-12-22",
+                "phone_number": "12345678",
+                "points": 0
+    }
+    }*/
+
+        String name,email,photo,birthday,phone_number;
+        int points;
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getEmail() {
+            return email;
+        }
+
+        public void setEmail(String email) {
+            this.email = email;
+        }
+
+        public String getPhoto() {
+            return photo;
+        }
+
+        public void setPhoto(String photo) {
+            this.photo = photo;
+        }
+
+        public String getBirthday() {
+            return birthday;
+        }
+
+        public void setBirthday(String birthday) {
+            this.birthday = birthday;
+        }
+
+        public String getPhone_number() {
+            return phone_number;
+        }
+
+        public void setPhone_number(String phone_number) {
+            this.phone_number = phone_number;
+        }
+
+        public int getPoints() {
+            return points;
+        }
+
+        public void setPoints(int points) {
+            this.points = points;
+        }
+
+
+
         protected DataModel(Parcel in) {
+            this.name=in.readString();
+            this.email=in.readString();
+            this.birthday=in.readString();
+            this.phone_number=in.readString();
+            this.photo=in.readString();
+            this.points=in.readInt();
         }
 
         public static final Creator<DataModel> CREATOR = new Creator<DataModel>() {
@@ -116,7 +191,13 @@ public class LoginModel implements Parcelable {
         }
 
         @Override
-        public void writeToParcel(Parcel parcel, int i) {
+        public void writeToParcel(Parcel dest, int i) {
+            dest.writeString(this.name);
+            dest.writeString(this.email);
+            dest.writeString(this.birthday);
+            dest.writeString(this.phone_number);
+            dest.writeString(this.photo);
+            dest.writeInt(this.points);
         }
     }
 }

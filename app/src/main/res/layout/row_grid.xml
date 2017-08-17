@@ -5,9 +5,10 @@
 
         <ImageView
             android:id="@+id/grid_image"
-            android:layout_width="200dp"
+            android:layout_width="150dp"
             android:layout_height="200dp"
-            android:src="@drawable/whitebg"
+            android:src="@mipmap/ic_aboutus"
+            android:background="@color/colorPrimary"
             >
         </ImageView>
 

@@ -34,7 +34,7 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:gravity="center"
-            android:text="main"
+            android:text="MERCATO"
             android:textAlignment="center"
             android:textSize="20dp"
             android:textColor="@color/colorWhite"
@@ -52,4 +52,4 @@
             android:scaleType="fitCenter"
             />
     </LinearLayout>
-</RelativeLayout>
+    </RelativeLayout>

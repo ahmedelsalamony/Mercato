@@ -21,4 +21,9 @@
     <string name="password">password</string>
     <string name="forgetpassword"> <u>forget password</u></string>
     <string name="leave">press back again to exit</string>
+    <string name="msg_enter_same_password">password must be the same</string>
+    <string name="msg_enter_valid_pass">Please enter Password at least 5 char  </string>
+    <string name="msg_enter_valid_email">Please enter valid EMail</string>
+    <string name="please_enter">Please enter</string>
+    <string name="msg_enter_valid_name_at_lest_4ch"> please enter name with 4 char at least</string>
 </resources>

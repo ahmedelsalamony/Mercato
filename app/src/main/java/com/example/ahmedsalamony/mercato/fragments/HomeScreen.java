@@ -25,7 +25,7 @@ public class HomeScreen extends Fragment {
 
     private static Fragment fragment;
     View rootview;
-    List<String> data;
+    List<Integer> data;
     List<String> txtData;
 
     public static Fragment newInstance() {
@@ -43,13 +43,13 @@ public class HomeScreen extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootview = inflater.inflate(R.layout.fragment_home_screen, container, false);
         GridView gridView = (GridView) rootview.findViewById(R.id.grid_view);
-        data=new ArrayList<String>();
-        data.add(0, "https://fun-spot.com/wp-content/uploads/freeCoffee.jpg");
-        data.add(1,"https://fun-spot.com/wp-content/uploads/freeCoffee.jpg");
-        data.add(2,"https://fun-spot.com/wp-content/uploads/freeCoffee.jpg");
-        data.add(3,"https://fun-spot.com/wp-content/uploads/freeCoffee.jpg");
-        data.add(4,"https://fun-spot.com/wp-content/uploads/freeCoffee.jpg");
-        data.add(5,"https://fun-spot.com/wp-content/uploads/freeCoffee.jpg");
+        data=new ArrayList<Integer>();
+        data.add(0,R.drawable.joinus);
+        data.add(1,R.drawable.menu);
+        data.add(2,R.mipmap.ic_aboutus);
+        data.add(3,R.drawable.products);
+        data.add(4,R.drawable.location);
+        data.add(5,R.drawable.review);
         txtData=new ArrayList<String>();
         txtData.add(0,"Join Us");
         txtData.add(1,"Menu");

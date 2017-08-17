@@ -17,10 +17,16 @@ import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ahmedsalamony.mercato.R;
+import com.example.ahmedsalamony.mercato.models.LoginModel;
+import com.example.ahmedsalamony.mercato.models.RegisterModel;
+import com.example.ahmedsalamony.mercato.tools.APIManager;
+import com.example.ahmedsalamony.mercato.tools.ValidationManager;
 import com.google.android.gms.vision.Frame;
 import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.gms.vision.barcode.BarcodeDetector;
@@ -38,17 +44,43 @@ public class LoginScan extends AppCompatActivity {
     private static final int REQUEST_WRITE_PERMISSION = 20;
     private static final String SAVED_INSTANCE_URI = "uri";
     private static final String SAVED_INSTANCE_RESULT = "result";
+    Button btn_login;
+    EditText email,password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_scan);
-        Button button = (Button) findViewById(R.id.scan);
+        ImageView button = (ImageView) findViewById(R.id.scan);
         scanResults = (TextView) findViewById(R.id.scan_results);
         if (savedInstanceState != null) {
             imageUri = Uri.parse(savedInstanceState.getString(SAVED_INSTANCE_URI));
             scanResults.setText(savedInstanceState.getString(SAVED_INSTANCE_RESULT));
         }
+        email=(EditText)findViewById(R.id.email);
+        password=(EditText)findViewById(R.id.password);
+
+        btn_login=(Button)findViewById(R.id.button_login);
+        btn_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (ValidationManager.validateEmptyFields(LoginScan.this,email,password)){
+                APIManager.LoginUser(LoginScan.this,email.getText().toString(),password.getText().toString(),
+                        new APIManager.ResponseListener<LoginModel>() {
+                            @Override
+                            public void done(LoginModel dataModel) {
+                                Intent i=new Intent(LoginScan.this,HomeActivity.class);
+                                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(i);
+                            }
+
+                            @Override
+                            public void failed(boolean fromConnection) {
+
+                            }
+                        });}
+            }
+        });
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

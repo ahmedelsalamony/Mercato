@@ -1,6 +1,8 @@
 package com.example.ahmedsalamony.mercato.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,11 +22,11 @@ import java.util.List;
 
 public class ImageAdapter extends BaseAdapter {
 
-    private List<String> dataList;
+    private List<Integer> dataList;
     private List<String> txtList;
     Context context;
 
-    public ImageAdapter(Context context,List<String> dataList,List<String> txtList){
+    public ImageAdapter(Context context,List<Integer> dataList,List<String> txtList){
         this.context=context;
         this.dataList=dataList;
         this.txtList=txtList;
@@ -59,11 +61,29 @@ public class ImageAdapter extends BaseAdapter {
             grid = inflater.inflate(R.layout.row_grid, null);
             TextView textView = (TextView) grid.findViewById(R.id.grid_text);
             ImageView imageView = (ImageView)grid.findViewById(R.id.grid_image);
-            Picasso.with(context)
+           /* Picasso.with(context)
                     .load(dataList.get(position).toString())
                     .placeholder(R.drawable.whitebg)
-                    .into(imageView);
+                    .into(imageView);*/
+            imageView.setImageResource(dataList.get(position));
+            if (position==0){
+            imageView.setBackgroundColor(ContextCompat.getColor(context, R.color.colorWhite));}
+            else if (position==1){
+                imageView.setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary));
+            }
+           else if (position==2){
+                imageView.setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary));}
+            else if (position==3){
+                imageView.setBackgroundColor(ContextCompat.getColor(context, R.color.colorWhite));
+            }
+            else if (position==4){
+                imageView.setBackgroundColor(ContextCompat.getColor(context, R.color.colorWhite));}
+            else if (position==5){
+                imageView.setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary));
+            }
             textView.setText(txtList.get(position));
+
+
         } else {
             grid = (View) convertView;
         }

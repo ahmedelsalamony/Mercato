@@ -34,9 +34,20 @@ public class HomeActivity extends AppCompatActivity {
                 openFragment(new fragment_menu());
             }
         });
+        if (getIntent().getExtras() != null) {
 
+
+            if (getIntent().getIntExtra("where",0)==1) {
+                openFragment(new fragment_menu());
+                isMainFragment = false;
+            }
+        }
+        else {
+
+            isMainFragment = true;
+            openFragment(new HomeScreen());
+        }
         openFragment(new HomeScreen());
-
     }
 
     private void openFragment(Fragment fragment) {

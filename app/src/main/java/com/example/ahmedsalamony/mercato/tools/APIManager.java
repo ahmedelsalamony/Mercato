@@ -9,6 +9,7 @@ import android.util.Log;
 import com.example.ahmedsalamony.mercato.R;
 import com.example.ahmedsalamony.mercato.dialog.DialogManager;
 import com.example.ahmedsalamony.mercato.models.LoginModel;
+import com.example.ahmedsalamony.mercato.models.RegisterModel;
 import com.google.gson.Gson;
 
 import retrofit2.Call;
@@ -34,16 +35,31 @@ public class APIManager {
 
         @Headers({"X-Authorization-token: 12b20fa6cca0ee113dc92d16f6be3029"})
         @POST(URL_Login)
-        Call<LoginModel> LoginUser(@Body LoginModel body );
+        Call<LoginModel> Login_user(@Body LoginModel body );
+
+        @Headers({"X-Authorization-token: 12b20fa6cca0ee113dc92d16f6be3029"})
+        @POST(URL_Register)
+        Call<RegisterModel> register_user(@Body RegisterModel body );
+
     }
+
+
 
     public static void LoginUser(Context context, String email, String password, final ResponseListener responseListener) {
         LoginModel x = new LoginModel(email, password);
-        Call call = RetrofitManager.getAPIBuilder(URL_BASE).LoginUser(x);
+        Call call = RetrofitManager.getAPIBuilder(URL_BASE).Login_user(x);
         boolean showLoadingDialog = true;
         performNormalRequest(context, call, showLoadingDialog, responseListener);
 
     }
+
+    public static void registerUser(Context context,String name,String email,String password,String date,String phone_number,final ResponseListener responseListener){
+        RegisterModel x=new RegisterModel(name,email,password,date,phone_number);
+        Call call=RetrofitManager.getAPIBuilder(URL_BASE).register_user(x);
+        boolean showLoadingDialog=true;
+        performNormalRequest(context,call,showLoadingDialog,responseListener);
+    }
+
 
 
     private static ProgressDialog showLoadingDialog(Context context, final Call call) {

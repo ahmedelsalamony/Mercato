@@ -10,88 +10,46 @@ import com.google.gson.annotations.SerializedName;
  */
 
 public class RegisterModel implements Parcelable {
-    String name,password,email,phone_number,birthday;
-    Boolean success;
-    @SerializedName("data")
-    LoginModel.DataModel data;
-    String error;
+    int api_status,id;
+    String api_message;
 
-    public String getName() {
-        return name;
+    String  name,email,password,birthday,phone_number;
+
+    public int getApi_status() {
+        return api_status;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setApi_status(int api_status) {
+        this.api_status = api_status;
     }
 
-    public String getPassword() {
-        return password;
+    public int getId() {
+        return id;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getEmail() {
-        return email;
+    public String getApi_message() {
+        return api_message;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setApi_message(String api_message) {
+        this.api_message = api_message;
     }
 
-    public String getPhone_number() {
-        return phone_number;
-    }
-
-    public void setPhone_number(String phone_number) {
-        this.phone_number = phone_number;
-    }
-
-    public String getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
-    }
-
-    public Boolean getSuccess() {
-        return success;
-    }
-
-    public void setSuccess(Boolean success) {
-        this.success = success;
-    }
-
-    public LoginModel.DataModel getData() {
-        return data;
-    }
-
-    public void setData(LoginModel.DataModel data) {
-        this.data = data;
-    }
-
-    public String getError() {
-        return error;
-    }
-
-    public void setError(String error) {
-        this.error = error;
-    }
-
-    public RegisterModel(String name,String email, String password,String birthday,String phone_number){
+    public RegisterModel(String name,String email,String password,String birthday,String phone_number){
         this.name=name;
         this.email=email;
         this.password=password;
         this.birthday=birthday;
         this.phone_number=phone_number;
     }
-
     protected RegisterModel(Parcel in) {
-        this.success = in.readByte() != 0;
-        this.data = in.readParcelable(LoginModel.DataModel.class.getClassLoader());
-        this.error=in.readString();
+        this.api_status=in.readInt();
+        this.api_message=in.readString();
+        this.id=in.readInt();
     }
 
     public static final Creator<RegisterModel> CREATOR = new Creator<RegisterModel>() {
@@ -113,7 +71,8 @@ public class RegisterModel implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeByte((byte) (this.success ? 1 : 0));
-        dest.writeParcelable(this.data, flags);
+        dest.writeInt(this.api_status);
+        dest.writeString(this.api_message);
+        dest.writeInt(this.id);
     }
 }
