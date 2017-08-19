@@ -27,16 +27,37 @@
             android:value="@string/google_maps_key" />
 
         <activity android:name=".MainActivity" />
-        <activity android:name=".activity.LoginScan"
-            android:theme="@style/AppTheme.NoActionBar"
-            ></activity>
+        <activity
+            android:name=".activity.LoginScan"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.splash"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".activity.Register"
-            android:theme="@style/AppTheme.NoActionBar"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.Register"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.Home"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.Mer_Location"
+            android:label="@string/title_activity_mer__location"
+            android:theme="@style/AppTheme.NoActionBar1" />
+        <activity
+            android:name=".activity.HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar1" />
+        <activity
+            android:name=".activity.Reviews"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity android:name=".activity.Menu" />
+        <activity android:name=".activity.Products" />
+        <activity android:name=".activity.Products_Categories"
+            android:theme="@style/AppTheme.NoActionBar1"
             >
 
             <intent-filter>
@@ -44,20 +65,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".activity.Home"
-            android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-        <activity
-            android:name=".activity.Mer_Location"
-            android:label="@string/title_activity_mer__location"></activity>
-        <activity android:name=".activity.HomeActivity"
-            android:theme="@style/AppTheme.NoActionBar1"
-            >
-
         </activity>
     </application>
 

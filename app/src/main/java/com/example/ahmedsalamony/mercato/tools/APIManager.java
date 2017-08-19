@@ -9,11 +9,14 @@ import android.util.Log;
 import com.example.ahmedsalamony.mercato.R;
 import com.example.ahmedsalamony.mercato.dialog.DialogManager;
 import com.example.ahmedsalamony.mercato.models.LoginModel;
+import com.example.ahmedsalamony.mercato.models.MenuModel;
+import com.example.ahmedsalamony.mercato.models.ProductsCategoriesModel;
 import com.example.ahmedsalamony.mercato.models.RegisterModel;
 import com.google.gson.Gson;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
@@ -29,6 +32,8 @@ public class APIManager {
 
     public static final String URL_Login = URL_BASE + "login";
     public static final String URL_Register = URL_BASE + "register";
+    public static final String URL_OurMenu = URL_BASE + "our_menu";
+    public static final String URL_products_category = URL_BASE + "products_category";
     public static final String Authorization = "X-Authorization-token";
 
     public interface APIsInterface {
@@ -40,6 +45,16 @@ public class APIManager {
         @Headers({"X-Authorization-token: 12b20fa6cca0ee113dc92d16f6be3029"})
         @POST(URL_Register)
         Call<RegisterModel> register_user(@Body RegisterModel body );
+
+        @Headers({"X-Authorization-token: 12b20fa6cca0ee113dc92d16f6be3029"})
+        @GET(URL_Register)
+        Call<MenuModel> our_menu();
+
+        @Headers({"X-Authorization-token: 12b20fa6cca0ee113dc92d16f6be3029"})
+        @GET(URL_products_category)
+        Call<ProductsCategoriesModel> products_category();
+
+
 
     }
 
@@ -60,6 +75,11 @@ public class APIManager {
         performNormalRequest(context,call,showLoadingDialog,responseListener);
     }
 
+    public static void getOurMenu(Context context, final ResponseListener responseListener){
+        Call call=RetrofitManager.getAPIBuilder(URL_BASE).our_menu();
+        boolean showLoadingDialog=true;
+        performNormalRequest(context,call,showLoadingDialog,responseListener);
+    }
 
 
     private static ProgressDialog showLoadingDialog(Context context, final Call call) {

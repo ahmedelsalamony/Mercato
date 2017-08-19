@@ -46,7 +46,7 @@ public class HomeScreen extends Fragment {
         data=new ArrayList<Integer>();
         data.add(0,R.drawable.joinus);
         data.add(1,R.drawable.menu);
-        data.add(2,R.mipmap.ic_aboutus);
+        data.add(2,R.drawable.aboutus);
         data.add(3,R.drawable.products);
         data.add(4,R.drawable.location);
         data.add(5,R.drawable.review);

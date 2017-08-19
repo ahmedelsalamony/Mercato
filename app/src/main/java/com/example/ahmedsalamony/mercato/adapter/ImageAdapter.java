@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.ahmedsalamony.mercato.R;
@@ -61,25 +62,26 @@ public class ImageAdapter extends BaseAdapter {
             grid = inflater.inflate(R.layout.row_grid, null);
             TextView textView = (TextView) grid.findViewById(R.id.grid_text);
             ImageView imageView = (ImageView)grid.findViewById(R.id.grid_image);
+            LinearLayout container_grid=(LinearLayout)grid.findViewById(R.id.container_grid);
            /* Picasso.with(context)
                     .load(dataList.get(position).toString())
                     .placeholder(R.drawable.whitebg)
                     .into(imageView);*/
             imageView.setImageResource(dataList.get(position));
             if (position==0){
-            imageView.setBackgroundColor(ContextCompat.getColor(context, R.color.colorWhite));}
+                container_grid.setBackgroundColor(ContextCompat.getColor(context, R.color.colorWhite));}
             else if (position==1){
-                imageView.setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary));
+                container_grid.setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary));
             }
            else if (position==2){
-                imageView.setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary));}
+                container_grid.setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary));}
             else if (position==3){
-                imageView.setBackgroundColor(ContextCompat.getColor(context, R.color.colorWhite));
+                container_grid.setBackgroundColor(ContextCompat.getColor(context, R.color.colorWhite));
             }
             else if (position==4){
-                imageView.setBackgroundColor(ContextCompat.getColor(context, R.color.colorWhite));}
+                container_grid.setBackgroundColor(ContextCompat.getColor(context, R.color.colorWhite));}
             else if (position==5){
-                imageView.setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary));
+                container_grid.setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary));
             }
             textView.setText(txtList.get(position));
 

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorAccent"
+        android:id="@+id/line"
+        ></LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line"
+        >
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/cofe"
+        android:id="@+id/category_img"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hot Drinks"
+        android:layout_gravity="center"
+        android:background="@color/blacktransparent"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorWhite"
+        android:gravity="center"
+        android:padding="8dp"
+        android:id="@+id/category_name"
+        />
+
+    </FrameLayout>
+
+
+</RelativeLayout>
