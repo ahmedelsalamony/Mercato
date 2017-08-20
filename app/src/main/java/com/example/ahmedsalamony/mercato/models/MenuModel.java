@@ -5,6 +5,9 @@ import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by ahmed on 8/19/2017.
  */
@@ -14,7 +17,7 @@ public class MenuModel implements Parcelable {
     int api_status;
     String api_message;
     @SerializedName("data")
-    LoginModel.DataModel data;
+    List<MenuModel.DataModel> data;
 
     public int getApi_status() {
         return api_status;
@@ -24,11 +27,11 @@ public class MenuModel implements Parcelable {
         this.api_status = api_status;
     }
 
-    public LoginModel.DataModel getData() {
+    public List<MenuModel.DataModel> getData() {
         return data;
     }
 
-    public void setData(LoginModel.DataModel data) {
+    public void setData(List<MenuModel.DataModel> data) {
         this.data = data;
     }
 
@@ -43,7 +46,10 @@ public class MenuModel implements Parcelable {
     protected MenuModel(Parcel in) {
         this.api_status = in.readInt();
         this.api_message=in.readString();
-        this.data = in.readParcelable(LoginModel.DataModel.class.getClassLoader());
+       // this.data = in.readParcelable(LoginModel.DataModel.class.getClassLoader());
+
+        this.data = new ArrayList<MenuModel.DataModel>();
+        in.readList(this.data, List.class.getClassLoader());
     }
 
     public static final Creator<MenuModel> CREATOR = new Creator<MenuModel>() {
@@ -67,13 +73,46 @@ public class MenuModel implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(this.api_status);
         dest.writeString(this.api_message);
-        dest.writeParcelable(this.data, flags);
+        dest.writeList(this.data);
     }
 
     public static class DataModel implements Parcelable{
 
         int id;
         String name,description,photo;
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+
+        public void setDescription(String description) {
+            this.description = description;
+        }
+
+        public String getPhoto() {
+            return photo;
+        }
+
+        public void setPhoto(String photo) {
+            this.photo = photo;
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
         protected DataModel(Parcel in) {
            this.id=in.readInt();
            this.name=in.readString();

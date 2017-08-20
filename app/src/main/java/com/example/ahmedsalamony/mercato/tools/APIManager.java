@@ -10,6 +10,7 @@ import com.example.ahmedsalamony.mercato.R;
 import com.example.ahmedsalamony.mercato.dialog.DialogManager;
 import com.example.ahmedsalamony.mercato.models.LoginModel;
 import com.example.ahmedsalamony.mercato.models.MenuModel;
+import com.example.ahmedsalamony.mercato.models.PointsModel;
 import com.example.ahmedsalamony.mercato.models.ProductsCategoriesModel;
 import com.example.ahmedsalamony.mercato.models.RegisterModel;
 import com.google.gson.Gson;
@@ -34,6 +35,7 @@ public class APIManager {
     public static final String URL_Register = URL_BASE + "register";
     public static final String URL_OurMenu = URL_BASE + "our_menu";
     public static final String URL_products_category = URL_BASE + "products_category";
+    public static final String URL_Points = URL_BASE + "points";
     public static final String Authorization = "X-Authorization-token";
 
     public interface APIsInterface {
@@ -47,15 +49,16 @@ public class APIManager {
         Call<RegisterModel> register_user(@Body RegisterModel body );
 
         @Headers({"X-Authorization-token: 12b20fa6cca0ee113dc92d16f6be3029"})
-        @GET(URL_Register)
+        @GET(URL_OurMenu)
         Call<MenuModel> our_menu();
 
         @Headers({"X-Authorization-token: 12b20fa6cca0ee113dc92d16f6be3029"})
         @GET(URL_products_category)
         Call<ProductsCategoriesModel> products_category();
 
-
-
+        @Headers({"X-Authorization-token: 12b20fa6cca0ee113dc92d16f6be3029"})
+        @GET(URL_Points)
+        Call<PointsModel> get_points();
     }
 
 
@@ -77,6 +80,12 @@ public class APIManager {
 
     public static void getOurMenu(Context context, final ResponseListener responseListener){
         Call call=RetrofitManager.getAPIBuilder(URL_BASE).our_menu();
+        boolean showLoadingDialog=true;
+        performNormalRequest(context,call,showLoadingDialog,responseListener);
+    }
+
+    public static void getPoints(Context context, final ResponseListener responseListener){
+        Call call=RetrofitManager.getAPIBuilder(URL_BASE).get_points();
         boolean showLoadingDialog=true;
         performNormalRequest(context,call,showLoadingDialog,responseListener);
     }

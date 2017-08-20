@@ -4,17 +4,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.example.ahmedsalamony.mercato.R;
 import com.example.ahmedsalamony.mercato.adapter.RecyclerAdapter;
+import com.example.ahmedsalamony.mercato.models.PointsModel;
 import com.example.ahmedsalamony.mercato.models.ProductsCategoriesModel;
+import com.example.ahmedsalamony.mercato.tools.APIManager;
 import com.example.ahmedsalamony.mercato.viewholder.CategoriesHolder;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Products_Categories extends AppCompatActivity {
-    private RecyclerView recyclerView;;
+    private RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,11 +29,13 @@ public class Products_Categories extends AppCompatActivity {
         data.add(2,new ProductsCategoriesModel.DataModel(3,"","meals"));
         data.add(3,new ProductsCategoriesModel.DataModel(4,"","snacks"));
         data.add(4,new ProductsCategoriesModel.DataModel(5,"","desert"));
-        adddata(data);
+
         recyclerView = (RecyclerView)findViewById(R.id.recycler);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
-
+        adddata(data);
     }
+
+
 
     public void adddata(final List<ProductsCategoriesModel.DataModel> data) {
         RecyclerAdapter recyclerAdapter = new RecyclerAdapter(data, R.layout.row_categories, CategoriesHolder.class,

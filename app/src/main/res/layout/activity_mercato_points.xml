@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_mercato_points"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.ahmedsalamony.mercato.activity.MercatoPoints"
+    android:background="@color/colorAccent"
+    >
+
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/about_pic"
+        android:weightSum="3"
+        android:id="@+id/aboutpoints"
+        >
+<TextView
+    android:layout_width="0.0dp"
+    android:layout_height="match_parent"
+    android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="0.0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:text="qqwqweqweqwe qqeqere eqrwere we ewrwer werwer werwer qer er eqrq  qeqwe qwe qwe weqw"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp"
+            />
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/aboutpoints"
+        >
+    </android.support.v7.widget.RecyclerView>
+
+</RelativeLayout>

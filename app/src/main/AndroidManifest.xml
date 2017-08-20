@@ -29,7 +29,9 @@
         <activity android:name=".MainActivity" />
         <activity
             android:name=".activity.LoginScan"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
         <activity
             android:name=".activity.splash"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -39,26 +41,28 @@
             android:name=".activity.Register"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".activity.Menu"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.Reviews"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".activity.Home"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".activity.Products_Categories"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".activity.Mer_Location"
-            android:label="@string/title_activity_mer__location"
-            android:theme="@style/AppTheme.NoActionBar1" />
+            android:label="@string/title_activity_mer__location" />
         <activity
             android:name=".activity.HomeActivity"
             android:theme="@style/AppTheme.NoActionBar1" />
         <activity
-            android:name=".activity.Reviews"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-        <activity android:name=".activity.Menu" />
-        <activity android:name=".activity.Products" />
-        <activity android:name=".activity.Products_Categories"
-            android:theme="@style/AppTheme.NoActionBar1"
-            >
+            android:name=".activity.TotalReviews"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activity.MercatoPoints">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

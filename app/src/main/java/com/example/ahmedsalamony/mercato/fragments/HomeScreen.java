@@ -11,7 +11,11 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.example.ahmedsalamony.mercato.R;
+import com.example.ahmedsalamony.mercato.activity.Menu;
 import com.example.ahmedsalamony.mercato.activity.Mer_Location;
+import com.example.ahmedsalamony.mercato.activity.Products_Categories;
+import com.example.ahmedsalamony.mercato.activity.Reviews;
+import com.example.ahmedsalamony.mercato.activity.TotalReviews;
 import com.example.ahmedsalamony.mercato.adapter.ImageAdapter;
 
 import java.util.ArrayList;
@@ -44,7 +48,7 @@ public class HomeScreen extends Fragment {
         rootview = inflater.inflate(R.layout.fragment_home_screen, container, false);
         GridView gridView = (GridView) rootview.findViewById(R.id.grid_view);
         data=new ArrayList<Integer>();
-        data.add(0,R.drawable.joinus);
+        data.add(0,R.drawable.join_us);
         data.add(1,R.drawable.menu);
         data.add(2,R.drawable.aboutus);
         data.add(3,R.drawable.products);
@@ -65,7 +69,22 @@ public class HomeScreen extends Fragment {
                 if (position==4){
                 Intent i=new Intent(getActivity(), Mer_Location.class);
                 getActivity().startActivity(i);
-            }
+            }else if(position==5){
+                    Intent i=new Intent(getActivity(), TotalReviews.class);
+                    getActivity().startActivity(i);
+                }else if(position==3){
+                    Intent i=new Intent(getActivity(), Products_Categories.class);
+                    getActivity().startActivity(i);
+                }else if (position==2){
+                    Intent i=new Intent(getActivity(), Products_Categories.class);
+                    getActivity().startActivity(i);
+                }else if (position==1){
+                    Intent i=new Intent(getActivity(), Menu.class);
+                    getActivity().startActivity(i);
+                }else if (position==0){
+                    Intent i=new Intent(getActivity(), Menu.class);
+                    getActivity().startActivity(i);
+                }
             }
         });
         return rootview;
