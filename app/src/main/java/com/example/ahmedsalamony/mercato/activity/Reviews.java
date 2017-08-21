@@ -13,9 +13,11 @@ import android.widget.Toast;
 
 import com.example.ahmedsalamony.mercato.R;
 import com.example.ahmedsalamony.mercato.adapter.RecyclerAdapter;
+import com.example.ahmedsalamony.mercato.adapter.StaticReviewAdapter;
 import com.example.ahmedsalamony.mercato.models.AddReviewsModel;
 import com.example.ahmedsalamony.mercato.models.ProductsCategoriesModel;
 import com.example.ahmedsalamony.mercato.models.RegisterModel;
+import com.example.ahmedsalamony.mercato.models.StaticReviewModel;
 import com.example.ahmedsalamony.mercato.tools.APIManager;
 import com.example.ahmedsalamony.mercato.ui.LoadingManager;
 import com.example.ahmedsalamony.mercato.viewholder.AddReviewHolder;
@@ -28,6 +30,8 @@ public class Reviews extends AppCompatActivity {
     private RecyclerView recyclerView;
     EditText et_comment;
     Button btn_submit;
+    private List<StaticReviewModel> reviewList = new ArrayList<>();
+    private StaticReviewAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,24 +46,32 @@ public class Reviews extends AppCompatActivity {
         data.add(3,new AddReviewsModel("Cleanliess"));
         data.add(4,new AddReviewsModel("Team Work"));
 
+        mAdapter = new StaticReviewAdapter(reviewList);
         recyclerView = (RecyclerView)findViewById(R.id.recycler);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
-        adddata(data);
+        recyclerView.setAdapter(mAdapter);
+        prepareMovieData();
         et_comment=(EditText)findViewById(R.id.comment);
         btn_submit=(Button)findViewById(R.id.btn_submit);
 
     }
 
-    public void adddata(final List<AddReviewsModel> data) {
-        RecyclerAdapter recyclerAdapter = new RecyclerAdapter(data, R.layout.row_add_review, AddReviewHolder.class,
-                new RecyclerAdapter.AdapterInterface<AddReviewsModel, AddReviewHolder>() {
-                    @Override
-                    public void fillData(final AddReviewsModel dataModel, final AddReviewHolder viewHolder)
-                    {
+    private void prepareMovieData() {
+        StaticReviewModel movie = new StaticReviewModel("Drinks");
+        reviewList.add(movie);
 
-                        viewHolder.getTv_dept().setText((CharSequence) data.get(0));
+        movie = new StaticReviewModel("Meals");
+        reviewList.add(movie);
 
-                    }});
-        recyclerView.setAdapter(recyclerAdapter);
+        movie = new StaticReviewModel("Service");
+        reviewList.add(movie);
+
+        movie = new StaticReviewModel("Cleanliess");
+        reviewList.add(movie);
+
+        movie = new StaticReviewModel( " Team Work ");
+        reviewList.add(movie);
+
+        mAdapter.notifyDataSetChanged();
     }
 }
