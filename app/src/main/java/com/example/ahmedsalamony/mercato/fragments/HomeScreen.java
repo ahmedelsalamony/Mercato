@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.example.ahmedsalamony.mercato.R;
 import com.example.ahmedsalamony.mercato.activity.Menu;
@@ -17,6 +19,7 @@ import com.example.ahmedsalamony.mercato.activity.Products_Categories;
 import com.example.ahmedsalamony.mercato.activity.Reviews;
 import com.example.ahmedsalamony.mercato.activity.TotalReviews;
 import com.example.ahmedsalamony.mercato.adapter.ImageAdapter;
+import com.google.android.gms.vision.text.Line;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +34,8 @@ public class HomeScreen extends Fragment {
     View rootview;
     List<Integer> data;
     List<String> txtData;
+    RelativeLayout joinus,menu,aboutus,products,ourlocation,reviews;
+
 
     public static Fragment newInstance() {
 
@@ -46,7 +51,61 @@ public class HomeScreen extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootview = inflater.inflate(R.layout.fragment_home_screen, container, false);
-        GridView gridView = (GridView) rootview.findViewById(R.id.grid_view);
+        joinus=(RelativeLayout)rootview.findViewById(R.id.join_container);
+        menu=(RelativeLayout)rootview.findViewById(R.id.menu_container);
+        aboutus=(RelativeLayout)rootview.findViewById(R.id.about_container);
+        products=(RelativeLayout)rootview.findViewById(R.id.products_container);
+        ourlocation=(RelativeLayout)rootview.findViewById(R.id.location_container);
+        reviews=(RelativeLayout)rootview.findViewById(R.id.reviews_container);
+
+
+        joinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(getActivity(), Products_Categories.class);
+                getActivity().startActivity(i);
+            }
+        });
+
+        aboutus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        products.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(getActivity(), Products_Categories.class);
+                getActivity().startActivity(i);
+            }
+        });
+
+        ourlocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(getActivity(), Mer_Location.class);
+                getActivity().startActivity(i);
+            }
+        });
+
+        reviews.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(getActivity(), TotalReviews.class);
+                getActivity().startActivity(i);
+            }
+        });
+
+   /*     GridView gridView = (GridView) rootview.findViewById(R.id.grid_view);
         data=new ArrayList<Integer>();
         data.add(0,R.drawable.join_us);
         data.add(1,R.drawable.menu);
@@ -86,7 +145,7 @@ public class HomeScreen extends Fragment {
                     getActivity().startActivity(i);
                 }
             }
-        });
+        });*/
         return rootview;
     }
 }

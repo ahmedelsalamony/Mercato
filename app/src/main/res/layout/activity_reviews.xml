@@ -54,265 +54,22 @@
             />
     </LinearLayout>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/head">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
 
-        >
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/drinks"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_below="@+id/head"
 
-        >
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        >
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/review_icon"
-        android:layout_alignParentStart="true"
-        android:id="@+id/img"
-        android:layout_gravity="center"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Drinks"
-        android:textSize="15sp"
-        android:layout_toRightOf="@+id/img"
-        android:id="@+id/textView2"
-        android:layout_gravity="center"
-        />
-</LinearLayout>
-    <RatingBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/ratingBar_drinks"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="10dp"
-        android:theme="@style/RatingBar"
-        />
-</RelativeLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/colorPrimary"
-        android:layout_below="@+id/drinks"
-        android:layout_margin="5dp"
-        ></LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/Meals"
-        android:layout_below="@+id/drinks"
-        android:layout_marginTop="10dp"
-        >
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/review_icon"
-            android:layout_alignParentStart="true"
-            android:id="@+id/img2"
-            android:layout_gravity="center"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Meals"
-            android:textSize="15sp"
-            android:layout_toRightOf="@+id/img"
-            android:id="@+id/textView3"
-            android:layout_gravity="center"
-            />
-</LinearLayout>
-        <RatingBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/ratingBar_Meals"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="10dp"
-            android:theme="@style/RatingBar"
-            />
-    </RelativeLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/colorPrimary"
-        android:layout_below="@+id/Meals"
-        android:layout_margin="5dp"
-        ></LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/Service"
-        android:layout_below="@+id/Meals"
-        android:layout_marginTop="10dp"
-        >
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/review_icon"
-            android:layout_alignParentStart="true"
-            android:id="@+id/img3"
-            android:layout_gravity="center"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Service"
-            android:textSize="15sp"
-            android:layout_toRightOf="@+id/img"
-            android:id="@+id/textView4"
-            android:layout_gravity="center"
-            />
-        </LinearLayout>
-
-        <RatingBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/ratingBar_service"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="10dp"
-            android:theme="@style/RatingBar"
-            />
-    </RelativeLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/colorPrimary"
-        android:layout_below="@+id/Service"
-        android:layout_margin="5dp"
-        ></LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/Clean"
-        android:layout_below="@+id/Service"
-        android:layout_marginTop="10dp"
-        >
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"       >
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/review_icon"
-            android:layout_alignParentStart="true"
-            android:id="@+id/img4"
-            android:layout_gravity="center"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cleanliess"
-            android:textSize="15sp"
-            android:layout_toRightOf="@+id/img"
-            android:id="@+id/textView5"
-            android:layout_gravity="center"
-            />
-</LinearLayout>
-        <RatingBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/ratingBar_clean"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="10dp"
-            android:theme="@style/RatingBar"
-            />
-    </RelativeLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/colorPrimary"
-        android:layout_below="@+id/Clean"
-        android:layout_margin="5dp"
-        ></LinearLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/Team_work"
-        android:layout_below="@+id/Clean"
-        android:layout_marginTop="10dp"
-        >
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp"       >
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/review_icon"
-                android:layout_alignParentStart="true"
-                android:id="@+id/img5"
-                android:layout_gravity="center"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Team Work"
-                android:textSize="15sp"
-                android:layout_toRightOf="@+id/img"
-                android:id="@+id/textView6"
-                android:layout_gravity="center"
-                />
-        </LinearLayout>
-        <RatingBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/ratingBar_team"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="10dp"
-            android:theme="@style/RatingBar"
-            />
-    </RelativeLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/colorPrimary"
-        android:layout_below="@+id/Team_work"
-        android:layout_margin="5dp"
-        android:id="@+id/line_team"
-        ></LinearLayout>
-
+            >
+        </android.support.v7.widget.RecyclerView>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_below="@+id/line_team"
+        android:layout_below="@+id/recycler"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="20dp"
         android:hint="Write your comment ..."
         android:background="@drawable/edittext_style_strok"
         android:padding="4dp"
@@ -334,6 +91,5 @@
         android:layout_gravity="center"
         android:id="@+id/btn_submit"
         />
-    </LinearLayout>
-    </ScrollView>
+
 </RelativeLayout>

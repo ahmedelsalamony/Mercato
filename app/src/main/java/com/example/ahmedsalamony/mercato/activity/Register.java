@@ -76,7 +76,8 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (ValidationManager.validateEmptyFields(Register.this,name,email,password,birthday,phone)){
-                APIManager.registerUser(Register.this,name.getText().toString(),email.getText().toString(),password.getText().toString(),birthday.getText().toString(),
+                APIManager.registerUser(Register.this,name.getText().toString(),email.getText().toString(),
+                        password.getText().toString(),birthday.getText().toString(),
                         phone.getText().toString(), new APIManager.ResponseListener<RegisterModel>() {
                             @Override
                             public void done(RegisterModel dataModel) {

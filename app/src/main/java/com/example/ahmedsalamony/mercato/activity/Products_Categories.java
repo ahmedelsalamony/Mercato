@@ -30,6 +30,8 @@ public class Products_Categories extends AppCompatActivity {
         data.add(3,new ProductsCategoriesModel.DataModel(4,"","snacks"));
         data.add(4,new ProductsCategoriesModel.DataModel(5,"","desert"));
 
+
+
         recyclerView = (RecyclerView)findViewById(R.id.recycler);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
         adddata(data);
@@ -49,4 +51,5 @@ public class Products_Categories extends AppCompatActivity {
                     }});
         recyclerView.setAdapter(recyclerAdapter);
     }
+
 }

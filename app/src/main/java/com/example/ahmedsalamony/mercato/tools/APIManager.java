@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.example.ahmedsalamony.mercato.R;
 import com.example.ahmedsalamony.mercato.dialog.DialogManager;
+import com.example.ahmedsalamony.mercato.models.AddReviewsModel;
 import com.example.ahmedsalamony.mercato.models.LoginModel;
 import com.example.ahmedsalamony.mercato.models.MenuModel;
 import com.example.ahmedsalamony.mercato.models.PointsModel;
@@ -36,10 +37,11 @@ public class APIManager {
     public static final String URL_OurMenu = URL_BASE + "our_menu";
     public static final String URL_products_category = URL_BASE + "products_category";
     public static final String URL_Points = URL_BASE + "points";
+    public static final String URL_Add_Reviews = URL_BASE + "add_review";
     public static final String Authorization = "X-Authorization-token";
 
     public interface APIsInterface {
-
+        //POST requests
         @Headers({"X-Authorization-token: 12b20fa6cca0ee113dc92d16f6be3029"})
         @POST(URL_Login)
         Call<LoginModel> Login_user(@Body LoginModel body );
@@ -48,6 +50,11 @@ public class APIManager {
         @POST(URL_Register)
         Call<RegisterModel> register_user(@Body RegisterModel body );
 
+        @Headers({"X-Authorization-token: 12b20fa6cca0ee113dc92d16f6be3029"})
+        @POST(URL_Add_Reviews)
+        Call<AddReviewsModel> add_review(@Body AddReviewsModel body );
+
+        //GET requests
         @Headers({"X-Authorization-token: 12b20fa6cca0ee113dc92d16f6be3029"})
         @GET(URL_OurMenu)
         Call<MenuModel> our_menu();
@@ -59,6 +66,10 @@ public class APIManager {
         @Headers({"X-Authorization-token: 12b20fa6cca0ee113dc92d16f6be3029"})
         @GET(URL_Points)
         Call<PointsModel> get_points();
+
+
+
+
     }
 
 
@@ -88,6 +99,14 @@ public class APIManager {
         Call call=RetrofitManager.getAPIBuilder(URL_BASE).get_points();
         boolean showLoadingDialog=true;
         performNormalRequest(context,call,showLoadingDialog,responseListener);
+    }
+
+    public static void addReview(Context context,int user_id,int drinks,int food,int services,int employees,int cleanness,String notes,final ResponseListener responseListener){
+        AddReviewsModel addReviewsModel=new AddReviewsModel( user_id, drinks, food, services, employees,  cleanness,notes);
+        Call call=RetrofitManager.getAPIBuilder(URL_BASE).add_review(addReviewsModel);
+        boolean showLoadingDialog=true;
+        performNormalRequest(context,call,showLoadingDialog,responseListener);
+
     }
 
 

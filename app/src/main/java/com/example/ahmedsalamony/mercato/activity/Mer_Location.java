@@ -15,6 +15,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -35,9 +36,11 @@ public class Mer_Location extends FragmentActivity implements OnMapReadyCallback
         TextView nady_navigation=(TextView)findViewById(R.id.txt_navidation_nady);
         TextView radwan_navigation=(TextView)findViewById(R.id.txt_navidation_radwan);
 
+
         nady_navigation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(branch1));
                 mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(branch1, 17.0f));
             }
@@ -79,8 +82,6 @@ public class Mer_Location extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        Bitmap icon = BitmapFactory.decodeResource(getResources(),
-                R.drawable.location_icon);
         // Add a marker in Sydney and move the camera
         branch1 = new LatLng(30.7921024, 31.0024722);
         branch2 = new LatLng(30.7936133, 30.9961207);

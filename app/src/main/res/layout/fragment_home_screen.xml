@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -49,7 +50,8 @@
             android:scaleType="fitCenter"
             />
     </LinearLayout>
-    <GridView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    <!--<GridView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/grid_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -59,5 +61,232 @@
         android:gravity="center"
         android:stretchMode="columnWidth"
         >
-    </GridView>
+    </GridView>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="3"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:weightSum="2"
+
+            >
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:id="@+id/join_container"
+                android:orientation="vertical"
+                android:background="@color/colorWhite"
+                >
+
+            <ImageView
+                android:padding="45dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/test"
+                />
+
+                <TextView
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="JOIN US"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center"
+                    android:layout_centerInParent="true"
+                    android:layout_marginBottom="10dp"
+                    />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:id="@+id/menu_container"
+                >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/menu_icon"
+                android:background="@color/colorPrimary"
+                android:padding="45dp"
+                />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MENU"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorWhite"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center"
+                    android:layout_centerInParent="true"
+                    android:layout_marginBottom="10dp"
+                    />
+
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:weightSum="2"
+            >
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:id="@+id/about_container"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:src="@drawable/aboutus_icon"
+                    android:background="@color/colorPrimary"
+                    android:padding="45dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ABOUT US"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorWhite"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center"
+                    android:layout_centerInParent="true"
+                    android:layout_marginBottom="10dp"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:id="@+id/products_container"
+                >
+
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:src="@drawable/products_icon"
+                    android:background="@color/colorWhite"
+                    android:padding="45dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" PRODUCTS"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center"
+                    android:layout_centerInParent="true"
+                    android:layout_marginBottom="10dp"
+                    />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:weightSum="2"
+            >
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:id="@+id/location_container"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:src="@drawable/location_icon"
+                    android:background="@color/colorWhite"
+                    android:padding="45dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="OUR LOCATION"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center"
+                    android:layout_centerInParent="true"
+                    android:layout_marginBottom="10dp"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:id="@+id/reviews_container"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:src="@drawable/reviews_icon"
+                    android:background="@color/colorPrimary"
+                    android:padding="45dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="REVIEWS"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorWhite"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center"
+                    android:layout_centerInParent="true"
+                    android:layout_marginBottom="10dp"
+                    />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
 </LinearLayout>
