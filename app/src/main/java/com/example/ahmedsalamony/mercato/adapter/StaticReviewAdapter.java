@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.ahmedsalamony.mercato.R;
 import com.example.ahmedsalamony.mercato.models.StaticReviewModel;
+import com.iarcuschin.simpleratingbar.SimpleRatingBar;
 
 import java.util.List;
 
@@ -23,17 +24,13 @@ public class StaticReviewAdapter extends RecyclerView.Adapter<StaticReviewAdapte
     private List<StaticReviewModel> reviewModels;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        ImageView star1, star2, star3, star4, star5;
         TextView tv_dept;
+        SimpleRatingBar ratingBar;
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            star1 = (ImageView) itemView.findViewById(R.id.star1);
-            star2 = (ImageView) itemView.findViewById(R.id.star2);
-            star3 = (ImageView) itemView.findViewById(R.id.star3);
-            star4 = (ImageView) itemView.findViewById(R.id.star4);
-            star5 = (ImageView) itemView.findViewById(R.id.star5);
             tv_dept = (TextView) itemView.findViewById(R.id.textView_dept);
+            ratingBar=(SimpleRatingBar)itemView.findViewById(R.id.rating);
         }
     }
 
@@ -55,12 +52,7 @@ public class StaticReviewAdapter extends RecyclerView.Adapter<StaticReviewAdapte
         StaticReviewModel reviewModel = reviewModels.get(position);
         holder.tv_dept.setText(reviewModel.getDeparts());
 
-        holder.star1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                holder.star1.setImageResource(R.drawable.star_fill);
-            }
-        });
+
 
     }
 

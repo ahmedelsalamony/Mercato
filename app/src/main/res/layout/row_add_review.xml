@@ -36,62 +36,18 @@
     </LinearLayout>
 
 
-    <LinearLayout
-        android:id="@+id/ratingBar_drinks"
+    <com.iarcuschin.simpleratingbar.SimpleRatingBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
+        app:srb_starSize="30dp"
+        app:srb_numberOfStars="5"
+        app:srb_rating="3"
+        app:srb_stepSize="0.5"
+        app:srb_borderColor="@color/colorAccent"
+        app:srb_fillColor="@color/colorPrimary"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
-        >
-
-        <ImageView
-            android:id="@+id/star1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="1dp"
-            android:adjustViewBounds="true"
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/star" />
-
-        <ImageView
-            android:id="@+id/star2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="1dp"
-            android:adjustViewBounds="true"
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/star" />
-
-        <ImageView
-            android:id="@+id/star3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="1dp"
-            android:adjustViewBounds="true"
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/star" />
-
-        <ImageView
-            android:id="@+id/star4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="1dp"
-            android:adjustViewBounds="true"
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/star" />
-
-        <ImageView
-            android:id="@+id/star5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="1dp"
-            android:adjustViewBounds="true"
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/star" />
-
-    </LinearLayout>
+        android:id="@+id/rating"
+        />
 
 </RelativeLayout>

@@ -54,19 +54,71 @@
             />
     </LinearLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/drink"
+        android:layout_below="@+id/head"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:id="@+id/drinkstext"
+            >
 
-        <android.support.v7.widget.RecyclerView
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@mipmap/review_icon"
+                android:layout_alignParentStart="true"
+                android:id="@+id/img"
+                android:layout_gravity="center"
+                android:padding="5dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Drinks"
+                android:textSize="18sp"
+                android:layout_toRightOf="@+id/img"
+                android:id="@+id/textView_dept"
+                android:layout_gravity="center"
+                />
+        </LinearLayout>
+
+
+        <com.iarcuschin.simpleratingbar.SimpleRatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srb_starSize="30dp"
+            app:srb_numberOfStars="5"
+            app:srb_rating="3"
+            app:srb_stepSize="0.5"
+            app:srb_borderColor="@color/colorAccent"
+            app:srb_fillColor="@color/colorPrimary"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/rating"
+            />
+
+
+    </RelativeLayout>
+
+
+ <!--       <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:layout_below="@+id/head"
 
             >
-        </android.support.v7.widget.RecyclerView>
+        </android.support.v7.widget.RecyclerView>-->
     <EditText
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_below="@+id/recycler"
+        android:layout_below="@+id/drink"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"

@@ -5,8 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.example.ahmedsalamony.mercato.R;
-import com.willy.ratingbar.BaseRatingBar;
-import com.willy.ratingbar.ScaleRatingBar;
+
 
 import static com.example.ahmedsalamony.mercato.R.drawable.ratingbar;
 
