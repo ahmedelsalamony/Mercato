@@ -22,56 +22,57 @@ import com.example.ahmedsalamony.mercato.tools.APIManager;
 import com.example.ahmedsalamony.mercato.ui.LoadingManager;
 import com.example.ahmedsalamony.mercato.viewholder.AddReviewHolder;
 import com.example.ahmedsalamony.mercato.viewholder.CategoriesHolder;
+import com.iarcuschin.simpleratingbar.SimpleRatingBar;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Reviews extends AppCompatActivity {
-    private RecyclerView recyclerView;
     EditText et_comment;
     Button btn_submit;
-    private List<StaticReviewModel> reviewList = new ArrayList<>();
-    private StaticReviewAdapter mAdapter;
-
+    SimpleRatingBar ratingBar_d,ratingBar_m,ratingBar_s,ratingBar_c,ratingBar_t;
+    int drink_rate_result,meals_rate_result,service_rate_result,clean_rate_result,team_rate_result;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reviews);
-
-
-        List<AddReviewsModel> data=new ArrayList<>();
-        data.add(0,new AddReviewsModel("Drinks"));
-        data.add(1,new AddReviewsModel("Meals"));
-        data.add(2,new AddReviewsModel("Service"));
-        data.add(3,new AddReviewsModel("Cleanliess"));
-        data.add(4,new AddReviewsModel("Team Work"));
-
-        mAdapter = new StaticReviewAdapter(reviewList);
-        recyclerView = (RecyclerView)findViewById(R.id.recycler);
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
-        recyclerView.setAdapter(mAdapter);
-        prepareMovieData();
         et_comment=(EditText)findViewById(R.id.comment);
         btn_submit=(Button)findViewById(R.id.btn_submit);
+        ratingBar_d=(SimpleRatingBar)findViewById(R.id.rating_drinks);
+        ratingBar_m=(SimpleRatingBar)findViewById(R.id.rating_meals);
+        ratingBar_s=(SimpleRatingBar)findViewById(R.id.rating_service);
+        ratingBar_c=(SimpleRatingBar)findViewById(R.id.rating_clean);
+        ratingBar_t=(SimpleRatingBar)findViewById(R.id.rating_team);
+
+        drink_rate_result=(int)ratingBar_d.getRating();
+        meals_rate_result=(int)ratingBar_m.getRating();
+        service_rate_result=(int)ratingBar_s.getRating();
+        clean_rate_result=(int)ratingBar_c.getRating();
+        team_rate_result=(int)ratingBar_t.getRating();
+
+        btn_submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                APIManager.addReview(Reviews.this,drink_rate_result,meals_rate_result,service_rate_result,clean_rate_result,team_rate_result
+                        ,et_comment.getText().toString(),11, new APIManager.ResponseListener<AddReviewsModel>() {
+                            @Override
+                            public void done(AddReviewsModel dataModel) {
+                                if (dataModel.getApi_status()==1 && dataModel.getCode()==0){
+                                    Toast.makeText(Reviews.this, " done ", Toast.LENGTH_SHORT).show();
+                                }else if (dataModel.getApi_status()==1 && dataModel.getCode()==9000){
+                                    Toast.makeText(Reviews.this,"Attention! You can review us just once per day", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+
+                            @Override
+                            public void failed(boolean fromConnection) {
+                            }
+                        });
+            }
+        });
+
+
 
     }
 
-    private void prepareMovieData() {
-        StaticReviewModel movie = new StaticReviewModel("Drinks");
-        reviewList.add(movie);
-
-        movie = new StaticReviewModel("Meals");
-        reviewList.add(movie);
-
-        movie = new StaticReviewModel("Service");
-        reviewList.add(movie);
-
-        movie = new StaticReviewModel("Cleanliess");
-        reviewList.add(movie);
-
-        movie = new StaticReviewModel( " Team Work ");
-        reviewList.add(movie);
-
-        mAdapter.notifyDataSetChanged();
-    }
 }

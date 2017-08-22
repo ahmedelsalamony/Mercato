@@ -11,6 +11,8 @@ public class AddReviewsModel implements Parcelable {
 
     int api_status,id;
     String api_message;
+    int code;
+
     int  drinks;
     int food;
     int services;
@@ -19,12 +21,12 @@ public class AddReviewsModel implements Parcelable {
     int user_id;
     String notes;
 
-    public String getNotes() {
-        return notes;
+    public int getCode() {
+        return code;
     }
 
-    public void setNotes(String notes) {
-        this.notes = notes;
+    public void setCode(int code) {
+        this.code = code;
     }
 
     public int getApi_status() {
@@ -51,55 +53,8 @@ public class AddReviewsModel implements Parcelable {
         this.api_message = api_message;
     }
 
-    public int getDrinks() {
-        return drinks;
-    }
 
-    public void setDrinks(int drinks) {
-        this.drinks = drinks;
-    }
-
-    public int getFood() {
-        return food;
-    }
-
-    public void setFood(int food) {
-        this.food = food;
-    }
-
-    public int getServices() {
-        return services;
-    }
-
-    public void setServices(int services) {
-        this.services = services;
-    }
-
-    public int getEmployees() {
-        return employees;
-    }
-
-    public void setEmployees(int employees) {
-        this.employees = employees;
-    }
-
-    public int getCleanness() {
-        return cleanness;
-    }
-
-    public void setCleanness(int cleanness) {
-        this.cleanness = cleanness;
-    }
-
-    public int getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
-    }
-
-    public AddReviewsModel(int user_id,int drinks,int food,int services,int employees,int cleanness,String notes) {
+    public AddReviewsModel(int drinks,int food,int services,int employees,int cleanness,String notes,int user_id) {
         this.notes = notes;
         this.user_id = user_id;
         this.cleanness = cleanness;
@@ -109,14 +64,12 @@ public class AddReviewsModel implements Parcelable {
         this.drinks = drinks;
     }
 
-    public AddReviewsModel(String title){
-
-    }
 
     protected AddReviewsModel(Parcel in) {
         this.api_status=in.readInt();
         this.api_message=in.readString();
         this.id=in.readInt();
+        this.code=in.readInt();
     }
 
     public static final Creator<AddReviewsModel> CREATOR = new Creator<AddReviewsModel>() {
@@ -141,5 +94,6 @@ public class AddReviewsModel implements Parcelable {
         dest.writeInt(this.api_status);
         dest.writeString(this.api_message);
         dest.writeInt(this.id);
+        dest.writeInt(this.code);
     }
 }

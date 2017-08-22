@@ -17,11 +17,6 @@ public class TotalReviews extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_total_reviews);
-        rb_drinks=(RatingBar)findViewById(R.id.ratingBar_drinks);
-        rb_meals=(RatingBar)findViewById(R.id.ratingBar_Meals);
-        rb_service=(RatingBar)findViewById(R.id.ratingBar_service);
-        rb_clean=(RatingBar)findViewById(R.id.ratingBar_clean);
-        rb_team=(RatingBar)findViewById(R.id.ratingBar_team);
         btn_post=(Button)findViewById(R.id.btn_post);
 
         btn_post.setOnClickListener(new View.OnClickListener() {

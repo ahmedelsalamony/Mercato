@@ -16,12 +16,15 @@ import com.example.ahmedsalamony.mercato.models.ProductsCategoriesModel;
 import com.example.ahmedsalamony.mercato.models.RegisterModel;
 import com.google.gson.Gson;
 
+import java.util.Date;
+
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 /**
  * Created by Ahmed Salamony on 8/14/2017.
@@ -42,17 +45,20 @@ public class APIManager {
 
     public interface APIsInterface {
         //POST requests
-        @Headers({"X-Authorization-token: 12b20fa6cca0ee113dc92d16f6be3029"})
+        @Headers({"X-Authorization-token: 12b20fa6cca0ee113dc92d16f6be3029" })
         @POST(URL_Login)
         Call<LoginModel> Login_user(@Body LoginModel body );
 
+//,"Content-Type: application/json"
         @Headers({"X-Authorization-token: 12b20fa6cca0ee113dc92d16f6be3029"})
         @POST(URL_Register)
-        Call<RegisterModel> register_user(@Body RegisterModel body );
+        Call<RegisterModel> register_user(@Query("name") String name, @Query("email") String email, @Query("password") String password
+        , @Query("birthday") String birthday, @Query("phone_number") String phone_number);
 
         @Headers({"X-Authorization-token: 12b20fa6cca0ee113dc92d16f6be3029"})
         @POST(URL_Add_Reviews)
-        Call<AddReviewsModel> add_review(@Body AddReviewsModel body );
+        Call<AddReviewsModel> add_review(@Query("drinks") int drinks,@Query("food") int food,@Query("services") int services,@Query("employees") int employees
+                ,@Query("cleanness") int cleanness,@Query("notes") String notes,@Query("user_id") int user_id );
 
         //GET requests
         @Headers({"X-Authorization-token: 12b20fa6cca0ee113dc92d16f6be3029"})
@@ -84,7 +90,7 @@ public class APIManager {
 
     public static void registerUser(Context context,String name,String email,String password,String date,String phone_number,final ResponseListener responseListener){
         RegisterModel x=new RegisterModel(name,email,password,date,phone_number);
-        Call call=RetrofitManager.getAPIBuilder(URL_BASE).register_user(x);
+        Call call=RetrofitManager.getAPIBuilder(URL_BASE).register_user(name,email,password,date,phone_number);
         boolean showLoadingDialog=true;
         performNormalRequest(context,call,showLoadingDialog,responseListener);
     }
@@ -101,9 +107,10 @@ public class APIManager {
         performNormalRequest(context,call,showLoadingDialog,responseListener);
     }
 
-    public static void addReview(Context context,int user_id,int drinks,int food,int services,int employees,int cleanness,String notes,final ResponseListener responseListener){
-        AddReviewsModel addReviewsModel=new AddReviewsModel( user_id, drinks, food, services, employees,  cleanness,notes);
-        Call call=RetrofitManager.getAPIBuilder(URL_BASE).add_review(addReviewsModel);
+    public static void addReview(Context context,int drinks,int food,int services,int employees,int cleanness,String notes,int user_id,final ResponseListener responseListener){
+        AddReviewsModel addReviewsModel=new AddReviewsModel(  drinks, food, services, employees, cleanness,notes,user_id);
+        System.out.println(addReviewsModel+"khadugyuw");
+        Call call=RetrofitManager.getAPIBuilder(URL_BASE).add_review(drinks,food,services,employees,cleanness,notes,user_id);
         boolean showLoadingDialog=true;
         performNormalRequest(context,call,showLoadingDialog,responseListener);
 

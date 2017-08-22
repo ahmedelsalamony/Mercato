@@ -6,7 +6,9 @@
     android:id="@+id/activity_reviews"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.ahmedsalamony.mercato.activity.Reviews">
+    tools:context="com.example.ahmedsalamony.mercato.activity.Reviews"
+    android:background="@color/colorWhite"
+    >
 
 
 
@@ -83,7 +85,7 @@
                 android:text="Drinks"
                 android:textSize="18sp"
                 android:layout_toRightOf="@+id/img"
-                android:id="@+id/textView_dept"
+                android:id="@+id/textView_drinks"
                 android:layout_gravity="center"
                 />
         </LinearLayout>
@@ -92,33 +94,266 @@
         <com.iarcuschin.simpleratingbar.SimpleRatingBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srb_starSize="30dp"
+            app:srb_starSize="25dp"
             app:srb_numberOfStars="5"
             app:srb_rating="3"
             app:srb_stepSize="0.5"
-            app:srb_borderColor="@color/colorAccent"
+            app:srb_borderColor="@color/colorPrimary"
             app:srb_fillColor="@color/colorPrimary"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:id="@+id/rating"
+            android:id="@+id/rating_drinks"
             />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimary"
+            android:layout_below="@id/rating_drinks"
+            android:layout_marginTop="25dp"
+            ></LinearLayout>
 
     </RelativeLayout>
 
 
- <!--       <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycler"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_below="@+id/head"
-
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/meals"
+        android:layout_below="@+id/drink"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:id="@+id/mealstext"
             >
-        </android.support.v7.widget.RecyclerView>-->
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@mipmap/review_icon"
+                android:layout_alignParentStart="true"
+                android:layout_gravity="center"
+                android:padding="5dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Meals"
+                android:textSize="18sp"
+                android:layout_toRightOf="@+id/img"
+                android:id="@+id/textView_meals"
+                android:layout_gravity="center"
+                />
+        </LinearLayout>
+
+
+        <com.iarcuschin.simpleratingbar.SimpleRatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srb_starSize="25dp"
+            app:srb_numberOfStars="5"
+            app:srb_rating="3"
+            app:srb_stepSize="0.5"
+            app:srb_borderColor="@color/colorPrimary"
+            app:srb_fillColor="@color/colorPrimary"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/rating_meals"
+            />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimary"
+            android:layout_below="@id/rating_meals"
+            android:layout_marginTop="25dp"
+            ></LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/services"
+        android:layout_below="@+id/meals"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:id="@+id/servicetext"
+            >
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@mipmap/review_icon"
+                android:layout_alignParentStart="true"
+                android:layout_gravity="center"
+                android:padding="5dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Service"
+                android:textSize="18sp"
+                android:layout_toRightOf="@+id/img"
+                android:id="@+id/textView_service"
+                android:layout_gravity="center"
+                />
+        </LinearLayout>
+
+
+        <com.iarcuschin.simpleratingbar.SimpleRatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srb_starSize="25dp"
+            app:srb_numberOfStars="5"
+            app:srb_rating="3"
+            app:srb_stepSize="0.5"
+            app:srb_borderColor="@color/colorPrimary"
+            app:srb_fillColor="@color/colorPrimary"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/rating_service"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimary"
+            android:layout_below="@id/rating_service"
+            android:layout_marginTop="25dp"
+            ></LinearLayout>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/clean"
+    android:layout_below="@+id/services"
+    >
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:id="@+id/cleantext"
+        >
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@mipmap/review_icon"
+            android:layout_alignParentStart="true"
+            android:layout_gravity="center"
+            android:padding="5dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cleanliess"
+            android:textSize="18sp"
+            android:layout_toRightOf="@+id/img"
+            android:id="@+id/textView_clean"
+            android:layout_gravity="center"
+            />
+    </LinearLayout>
+
+
+    <com.iarcuschin.simpleratingbar.SimpleRatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srb_starSize="25dp"
+        app:srb_numberOfStars="5"
+        app:srb_rating="3"
+        app:srb_stepSize="0.5"
+        app:srb_borderColor="@color/colorPrimary"
+        app:srb_fillColor="@color/colorPrimary"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:id="@+id/rating_clean"
+        />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimary"
+            android:layout_below="@id/rating_clean"
+            android:layout_marginTop="25dp"
+            ></LinearLayout>
+
+</RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/team"
+        android:layout_below="@+id/clean"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:id="@+id/teamtext"
+            >
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@mipmap/review_icon"
+                android:layout_alignParentStart="true"
+                android:layout_gravity="center"
+                android:padding="5dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Team Work"
+                android:textSize="18sp"
+                android:layout_toRightOf="@+id/img"
+                android:id="@+id/textView_team"
+                android:layout_gravity="center"
+                />
+        </LinearLayout>
+
+
+        <com.iarcuschin.simpleratingbar.SimpleRatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srb_starSize="25dp"
+            app:srb_numberOfStars="5"
+            app:srb_rating="3"
+            app:srb_stepSize="1"
+            app:srb_borderColor="@color/colorPrimary"
+            app:srb_fillColor="@color/colorPrimary"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/rating_team"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimary"
+            android:layout_below="@id/rating_team"
+            android:layout_marginTop="25dp"
+            ></LinearLayout>
+
+    </RelativeLayout>
+
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_below="@+id/drink"
+        android:layout_height="100dp"
+        android:layout_below="@+id/team"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
@@ -126,6 +361,7 @@
         android:background="@drawable/edittext_style_strok"
         android:padding="4dp"
         android:id="@+id/comment"
+        android:gravity="start"
         />
 
     <Button
@@ -136,8 +372,8 @@
         android:layout_centerHorizontal="true"
         android:background="@drawable/edittext_style_primarycolor"
         android:layout_marginTop="10dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
         android:textColor="@color/colorWhite"
         android:textAllCaps="false"
         android:layout_gravity="center"
