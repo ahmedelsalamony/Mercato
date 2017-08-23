@@ -6,7 +6,7 @@
     android:id="@+id/activity_home2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.ahmedsalamony.mercato.activity.HomeActivity">
+    tools:context="com.apps.square.mercato.activity.HomeActivity">
 
 
 
@@ -39,6 +39,7 @@
             android:textAlignment="center"
             android:textSize="20dp"
             android:textColor="@color/colorWhite"
+            android:textStyle="bold"
             />
 
         <ImageView

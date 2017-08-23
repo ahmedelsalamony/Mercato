@@ -4,7 +4,7 @@
     android:id="@+id/activity_mercato_points"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.ahmedsalamony.mercato.activity.MercatoPoints"
+    tools:context="com.apps.square.mercato.activity.MercatoPoints"
     android:background="@color/colorAccent"
     >
 

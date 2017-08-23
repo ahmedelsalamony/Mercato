@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.ahmedsalamony.mercato.activity.Products_Categories">
+    tools:context="com.apps.square.mercato.activity.Products_Categories">
     <LinearLayout
         android:id="@+id/head"
         android:layout_width="match_parent"
@@ -37,6 +37,7 @@
             android:textAlignment="center"
             android:textSize="20dp"
             android:textColor="@color/colorWhite"
+            android:textStyle="bold"
             />
 
         <ImageView

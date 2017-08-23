@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#812622"
-    tools:context="com.example.ahmedsalamony.mercato.activity.splash">
+    tools:context="com.apps.square.mercato.activity.splash">
 
 
     <ImageView

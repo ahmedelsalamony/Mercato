@@ -36,6 +36,7 @@
             android:textAlignment="center"
             android:textSize="20dp"
             android:textColor="@color/colorWhite"
+            android:textStyle="bold"
             />
 
         <ImageView
@@ -56,7 +57,7 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="380dp"
-        tools:context="com.example.ahmedsalamony.mercato.activity.Mer_Location" />
+        tools:context="com.apps.square.mercato.activity.Mer_Location" />
 
     <FrameLayout
         android:layout_width="match_parent"

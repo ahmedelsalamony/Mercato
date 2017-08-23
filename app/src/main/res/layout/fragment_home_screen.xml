@@ -32,10 +32,11 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:gravity="center"
-            android:text="Mercato Home"
+            android:text="Mercato"
             android:textAlignment="center"
             android:textSize="20dp"
             android:textColor="@color/colorWhite"
+            android:textStyle="bold"
             />
 
         <ImageView

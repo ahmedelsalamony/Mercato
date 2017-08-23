@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ahmedsalamony.mercato">
+    package="com.apps.square.mercato">
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -14,6 +14,7 @@
          Google Maps Android API v2, but you must specify either coarse or fine
          location permissions for the 'MyLocation' functionality. 
     -->
+
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
@@ -37,21 +38,13 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.Register"
-            android:theme="@style/AppTheme.NoActionBar" >
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.Menu"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.Reviews"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.Home"
             android:label="@string/title_activity_home"
@@ -64,19 +57,29 @@
             android:label="@string/title_activity_mer__location" />
         <activity
             android:name=".activity.HomeActivity"
-            android:theme="@style/AppTheme.NoActionBar1" >
+            android:theme="@style/AppTheme.NoActionBar1">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".activity.TotalReviews"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activity.MercatoPoints" >
+        <activity android:name=".activity.MercatoPoints" />
+        <activity android:name=".activity.Main2Activitytt" />
+        <activity
+            android:name=".activity.RedeemPoints"
+            android:theme="@style/AppTheme.NoActionBar1"></activity>
+        <activity
+            android:name=".activity.MyWallet"
+            android:theme="@style/AppTheme.NoActionBar1" />
+        <activity android:name=".activity.AboutUs"
+            android:theme="@style/AppTheme.NoActionBar1"
+            >
 
         </activity>
-        <activity android:name=".activity.Main2Activitytt"></activity>
-        <activity android:name=".activity.RedeemPoints"
-            android:theme="@style/AppTheme.NoActionBar1"
-            ></activity>
     </application>
 
 </manifest>

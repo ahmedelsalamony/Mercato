@@ -6,7 +6,7 @@
     android:id="@+id/activity_reviews"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.ahmedsalamony.mercato.activity.Reviews">
+    tools:context="com.apps.square.mercato.activity.Reviews">
 
 
 
@@ -42,6 +42,7 @@
             android:textAlignment="center"
             android:textSize="20dp"
             android:textColor="@color/colorWhite"
+            android:textStyle="bold"
             />
 
         <ImageView
