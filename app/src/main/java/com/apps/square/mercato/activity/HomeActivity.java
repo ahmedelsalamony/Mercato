@@ -1,5 +1,7 @@
 package com.apps.square.mercato.activity;
 
+import android.content.Intent;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +14,9 @@ import com.apps.square.mercato.R;
 import com.apps.square.mercato.fragments.HomeScreen;
 import com.apps.square.mercato.fragments.fragment_menu;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class HomeActivity extends AppCompatActivity {
     public static View head;
     public static TextView texthead;
@@ -23,6 +28,24 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home2);
+
+/*
+
+        TimerTask task = new TimerTask() {
+
+            @Override
+            public void run() {
+                Intent intent = new Intent(HomeActivity.this, MercatoPoints.class);
+                startActivity(intent);
+                overridePendingTransition( R.anim.slide_in, R.anim.slide_out);
+               // finishscreen();
+            }
+        };
+        Timer t = new Timer();
+        t.schedule(task, 3000);
+*/
+
+
 
         head=findViewById(R.id.menu);
         texthead=(TextView)findViewById(R.id.headtext);
@@ -67,4 +90,5 @@ public class HomeActivity extends AppCompatActivity {
                 moveTaskToBack(true);
             }
         }
+
 }

@@ -35,6 +35,8 @@ public class CategoriesHolder extends RecyclerView.ViewHolder {
         super(itemView);
         category_img = (ImageView) itemView.findViewById(R.id.category_img);
         category_name=(TextView) itemView.findViewById(R.id.category_name);
+
+
     }
 
 

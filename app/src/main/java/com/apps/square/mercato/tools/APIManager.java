@@ -11,6 +11,7 @@ import com.apps.square.mercato.dialog.DialogManager;
 import com.apps.square.mercato.models.AddReviewsModel;
 import com.apps.square.mercato.models.LoginModel;
 import com.apps.square.mercato.models.MenuModel;
+import com.apps.square.mercato.models.MyWalletModel;
 import com.apps.square.mercato.models.PointsModel;
 import com.apps.square.mercato.models.ProductsCategoriesModel;
 import com.apps.square.mercato.models.RegisterModel;
@@ -38,6 +39,7 @@ public class APIManager {
     public static final String URL_products_category = URL_BASE + "products_category";
     public static final String URL_Points = URL_BASE + "points";
     public static final String URL_Add_Reviews = URL_BASE + "add_review";
+    public static final String URL_MY_Wallet = URL_BASE + "wallet";
     public static final String Authorization = "X-Authorization-token";
 
     public interface APIsInterface {
@@ -70,6 +72,10 @@ public class APIManager {
         @GET(URL_Points)
         Call<PointsModel> get_points();
 
+
+        @Headers({"X-Authorization-token: 12b20fa6cca0ee113dc92d16f6be3029"})
+        @GET(URL_MY_Wallet)
+        Call<MyWalletModel> get_wallet(@Query("id") String id);
 
 
 
@@ -112,6 +118,14 @@ public class APIManager {
         performNormalRequest(context,call,showLoadingDialog,responseListener);
 
     }
+
+
+    public static void getMyWallet(Context context,String id, final ResponseListener responseListener){
+        Call call=RetrofitManager.getAPIBuilder(URL_BASE).get_wallet(id);
+        boolean showLoadingDialog=true;
+        performNormalRequest(context,call,showLoadingDialog,responseListener);
+    }
+
 
 
     private static ProgressDialog showLoadingDialog(Context context, final Call call) {

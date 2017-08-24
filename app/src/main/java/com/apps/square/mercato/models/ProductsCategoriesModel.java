@@ -72,8 +72,11 @@ public class ProductsCategoriesModel implements Parcelable {
     }
     public static class DataModel implements Parcelable{
 
-        int id;
-        String name,slug;
+        int id,slug;
+        String name;
+
+
+
 
         public int getId() {
             return id;
@@ -91,15 +94,15 @@ public class ProductsCategoriesModel implements Parcelable {
             this.name = name;
         }
 
-        public String getSlug() {
+        public int getSlug() {
             return slug;
         }
 
-        public void setSlug(String slug) {
+        public void setSlug(int slug) {
             this.slug = slug;
         }
 
-        public DataModel(int id, String slug, String name) {
+        public DataModel(int id, int slug, String name) {
             this.id = id;
             this.slug = slug;
             this.name = name;
@@ -108,7 +111,7 @@ public class ProductsCategoriesModel implements Parcelable {
         protected DataModel(Parcel in) {
             this.id=in.readInt();
             this.name=in.readString();
-            this.slug=in.readString();
+            this.slug=in.readInt();
         }
 
         public static final Creator<DataModel> CREATOR = new Creator<DataModel>() {
@@ -132,7 +135,7 @@ public class ProductsCategoriesModel implements Parcelable {
         public void writeToParcel(Parcel dest, int flags) {
             dest.writeInt(this.id);
             dest.writeString(this.name);
-            dest.writeString(this.slug);
+            dest.writeInt(this.slug);
         }
     }
 }

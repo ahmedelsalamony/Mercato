@@ -2,6 +2,7 @@ package com.apps.square.mercato.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,7 +11,10 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.apps.square.mercato.R;
+import com.apps.square.mercato.activity.AboutUs;
+import com.apps.square.mercato.activity.Menu;
 import com.apps.square.mercato.activity.Mer_Location;
+import com.apps.square.mercato.activity.MercatoPoints;
 import com.apps.square.mercato.activity.Products_Categories;
 import com.apps.square.mercato.activity.TotalReviews;
 
@@ -51,9 +55,12 @@ public class HomeScreen extends Fragment {
         reviews=(RelativeLayout)rootview.findViewById(R.id.reviews_container);
 
 
+
+
         joinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
 
             }
         });
@@ -61,7 +68,7 @@ public class HomeScreen extends Fragment {
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(getActivity(), Products_Categories.class);
+                Intent i=new Intent(getActivity(), Menu.class);
                 getActivity().startActivity(i);
             }
         });
@@ -69,7 +76,8 @@ public class HomeScreen extends Fragment {
         aboutus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent i=new Intent(getActivity(), AboutUs.class);
+                getActivity().startActivity(i);
             }
         });
 

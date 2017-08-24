@@ -372,7 +372,7 @@
         android:layout_below="@+id/comment"
         android:layout_centerHorizontal="true"
         android:background="@drawable/edittext_style_primarycolor"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:paddingLeft="40dp"
         android:paddingRight="40dp"
         android:textColor="@color/colorWhite"

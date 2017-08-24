@@ -30,12 +30,21 @@
         <activity android:name=".MainActivity" />
         <activity
             android:name=".activity.LoginScan"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" >
+
+        </activity>
         <activity
             android:name=".activity.splash"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".activity.Register"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -46,10 +55,6 @@
             android:name=".activity.Reviews"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.Home"
-            android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".activity.Products_Categories"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -58,17 +63,14 @@
         <activity
             android:name=".activity.HomeActivity"
             android:theme="@style/AppTheme.NoActionBar1">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".activity.TotalReviews"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activity.MercatoPoints" />
-        <activity android:name=".activity.Main2Activitytt" />
+        <activity android:name=".activity.MercatoPoints"
+            android:theme="@style/AppTheme.NoActionBar1"
+            />
         <activity
             android:name=".activity.RedeemPoints"
             android:theme="@style/AppTheme.NoActionBar1"></activity>

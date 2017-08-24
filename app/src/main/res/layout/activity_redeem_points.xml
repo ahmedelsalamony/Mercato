@@ -34,7 +34,7 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:gravity="center"
-            android:text="MERCATO POINTS"
+            android:text="REDEEM POINTS"
             android:textAlignment="center"
             android:textSize="20dp"
             android:textColor="@color/colorWhite"

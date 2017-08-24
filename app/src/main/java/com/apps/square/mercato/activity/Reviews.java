@@ -1,13 +1,17 @@
 package com.apps.square.mercato.activity;
 
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.apps.square.mercato.R;
+import com.apps.square.mercato.fragments.fragment_menu;
 import com.apps.square.mercato.models.AddReviewsModel;
 import com.apps.square.mercato.tools.APIManager;
 import com.iarcuschin.simpleratingbar.SimpleRatingBar;
@@ -17,6 +21,10 @@ public class Reviews extends AppCompatActivity {
     Button btn_submit;
     SimpleRatingBar ratingBar_d,ratingBar_m,ratingBar_s,ratingBar_c,ratingBar_t;
     int drink_rate_result,meals_rate_result,service_rate_result,clean_rate_result,team_rate_result;
+    public static View head;
+    public static TextView texthead;
+    private Class currentFragmentClass;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +42,15 @@ public class Reviews extends AppCompatActivity {
         service_rate_result=(int)ratingBar_s.getRating();
         clean_rate_result=(int)ratingBar_c.getRating();
         team_rate_result=(int)ratingBar_t.getRating();
+
+        head=findViewById(R.id.menu);
+        texthead=(TextView)findViewById(R.id.headtext);
+        head.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openFragment(new fragment_menu());
+            }
+        });
 
         btn_submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,8 +73,16 @@ public class Reviews extends AppCompatActivity {
             }
         });
 
+    }
 
-
+    private void openFragment(Fragment fragment) {
+        if (currentFragmentClass != fragment.getClass()) {
+            currentFragmentClass = fragment.getClass();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.activity_reviews, fragment)
+                    .commit();
+        }
     }
 
 }

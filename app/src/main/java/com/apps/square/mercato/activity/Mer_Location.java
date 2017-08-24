@@ -1,13 +1,16 @@
 package com.apps.square.mercato.activity;
 
 import android.content.Intent;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.apps.square.mercato.R;
+import com.apps.square.mercato.fragments.fragment_menu;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -21,6 +24,10 @@ public class Mer_Location extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     LatLng branch1,branch2;
 
+    public static View head;
+    public static TextView texthead;
+    private Class currentFragmentClass;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +36,15 @@ public class Mer_Location extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        head=findViewById(R.id.menu);
+        texthead=(TextView)findViewById(R.id.headtext);
+        head.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openFragment(new fragment_menu());
+            }
+        });
 
         TextView nady_navigation=(TextView)findViewById(R.id.txt_navidation_nady);
         TextView radwan_navigation=(TextView)findViewById(R.id.txt_navidation_radwan);
@@ -64,7 +80,15 @@ public class Mer_Location extends FragmentActivity implements OnMapReadyCallback
             }
         });
     }
-
+    private void openFragment(Fragment fragment) {
+        if (currentFragmentClass != fragment.getClass()) {
+            currentFragmentClass = fragment.getClass();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.mer_location_activity, fragment)
+                    .commit();
+        }
+    }
 
     /**
      * Manipulates the map once available.

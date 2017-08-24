@@ -4,7 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/mer_location_activity"
+    >
 
     <LinearLayout
         android:id="@+id/head"
@@ -105,7 +107,7 @@
                     android:textColor="@color/colorWhite"
                     android:layout_gravity="center"
                     android:id="@+id/txt_navidation_nady"
-                    android:padding="2dp"
+                    android:padding="4dp"
                     />
 
 
@@ -137,7 +139,7 @@
                     android:textColor="@color/colorWhite"
                     android:layout_gravity="center"
                     android:id="@+id/txt_navidation_radwan"
-                    android:padding="2dp"
+                    android:padding="4dp"
                     />
 </LinearLayout>
         </LinearLayout>

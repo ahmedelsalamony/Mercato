@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import com.apps.square.mercato.R;
 import com.apps.square.mercato.activity.HomeActivity;
+import com.apps.square.mercato.activity.MyWallet;
+import com.apps.square.mercato.activity.RedeemPoints;
 
 import java.util.List;
 
@@ -76,6 +78,9 @@ public class fragment_menu extends Fragment {
                 txtredeem.setBackgroundColor(Color.parseColor("#b11e24"));
                 txtoffers.setBackgroundColor(Color.parseColor("#b11e24"));
                 txtlogout.setBackgroundColor(Color.parseColor("#b11e24"));
+
+                Intent i=new Intent(getActivity(), MyWallet.class);
+                startActivity(i);
             }
         });
 
@@ -87,6 +92,9 @@ public class fragment_menu extends Fragment {
                 txtprofile.setBackgroundColor(Color.parseColor("#b11e24"));
                 txtoffers.setBackgroundColor(Color.parseColor("#b11e24"));
                 txtlogout.setBackgroundColor(Color.parseColor("#b11e24"));
+
+                Intent i=new Intent(getActivity(), RedeemPoints.class);
+                startActivity(i);
             }
         });
 
