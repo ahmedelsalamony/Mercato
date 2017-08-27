@@ -2,10 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.apps.square.mercato">
 
-    <uses-feature
-        android:name="android.hardware.camera"
-        android:required="true" />
-
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -30,15 +27,12 @@
         <activity android:name=".MainActivity" />
         <activity
             android:name=".activity.LoginScan"
-            android:theme="@style/AppTheme.NoActionBar" >
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.splash"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -62,26 +56,29 @@
             android:label="@string/title_activity_mer__location" />
         <activity
             android:name=".activity.HomeActivity"
-            android:theme="@style/AppTheme.NoActionBar1">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar1" />
         <activity
             android:name=".activity.TotalReviews"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activity.MercatoPoints"
-            android:theme="@style/AppTheme.NoActionBar1"
-            />
+        <activity
+            android:name=".activity.MercatoPoints"
+            android:theme="@style/AppTheme.NoActionBar1" />
         <activity
             android:name=".activity.RedeemPoints"
-            android:theme="@style/AppTheme.NoActionBar1"></activity>
+            android:theme="@style/AppTheme.NoActionBar1" />
         <activity
             android:name=".activity.MyWallet"
             android:theme="@style/AppTheme.NoActionBar1" />
-        <activity android:name=".activity.AboutUs"
-            android:theme="@style/AppTheme.NoActionBar1"
-            >
+        <activity
+            android:name=".activity.AboutUs"
+            android:theme="@style/AppTheme.NoActionBar1" />
+        <activity android:name=".activity.Scan_QRCode">
 
         </activity>
+        <activity
+            android:name=".activity.LoginWithPassword"
+            android:theme="@style/AppTheme.NoActionBar1" />
+        <activity android:name=".activity.EditProfile"></activity>
     </application>
 
 </manifest>

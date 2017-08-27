@@ -14,12 +14,14 @@ import com.apps.square.mercato.models.MenuModel;
 import com.apps.square.mercato.models.MyWalletModel;
 import com.apps.square.mercato.models.PointsModel;
 import com.apps.square.mercato.models.ProductsCategoriesModel;
+import com.apps.square.mercato.models.QRCodeModel;
 import com.apps.square.mercato.models.RegisterModel;
 import com.google.gson.Gson;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
@@ -40,10 +42,11 @@ public class APIManager {
     public static final String URL_Points = URL_BASE + "points";
     public static final String URL_Add_Reviews = URL_BASE + "add_review";
     public static final String URL_MY_Wallet = URL_BASE + "wallet";
+    public static final String URL_QR_SCAN = URL_BASE + "qrscan";
     public static final String Authorization = "X-Authorization-token";
 
     public interface APIsInterface {
-        //POST requests
+        //-----------------POST requests----------------------------
         @Headers({"X-Authorization-token: 12b20fa6cca0ee113dc92d16f6be3029" })
         @POST(URL_Login)
         Call<LoginModel> Login_user(@Body LoginModel body );
@@ -59,7 +62,7 @@ public class APIManager {
         Call<AddReviewsModel> add_review(@Query("drinks") int drinks,@Query("food") int food,@Query("services") int services,@Query("employees") int employees
                 ,@Query("cleanness") int cleanness,@Query("notes") String notes,@Query("user_id") int user_id );
 
-        //GET requests
+        //---------------------------GET requests-------------------------------------------
         @Headers({"X-Authorization-token: 12b20fa6cca0ee113dc92d16f6be3029"})
         @GET(URL_OurMenu)
         Call<MenuModel> our_menu();
@@ -76,6 +79,11 @@ public class APIManager {
         @Headers({"X-Authorization-token: 12b20fa6cca0ee113dc92d16f6be3029"})
         @GET(URL_MY_Wallet)
         Call<MyWalletModel> get_wallet(@Query("id") String id);
+
+
+        @Headers({"X-Authorization-token: 12b20fa6cca0ee113dc92d16f6be3029"})
+        @GET(URL_QR_SCAN)
+        Call<QRCodeModel> get_QRScan(@Query("serial_number") String serial_number);
 
 
 
@@ -122,6 +130,12 @@ public class APIManager {
 
     public static void getMyWallet(Context context,String id, final ResponseListener responseListener){
         Call call=RetrofitManager.getAPIBuilder(URL_BASE).get_wallet(id);
+        boolean showLoadingDialog=true;
+        performNormalRequest(context,call,showLoadingDialog,responseListener);
+    }
+
+    public static void getQRCode(Context context,String serial_number, final ResponseListener responseListener){
+        Call call=RetrofitManager.getAPIBuilder(URL_BASE).get_QRScan(serial_number);
         boolean showLoadingDialog=true;
         performNormalRequest(context,call,showLoadingDialog,responseListener);
     }

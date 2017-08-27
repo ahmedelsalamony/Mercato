@@ -80,7 +80,9 @@ public class Register extends AppCompatActivity {
                         phone.getText().toString(), new APIManager.ResponseListener<RegisterModel>() {
                             @Override
                             public void done(RegisterModel dataModel) {
-                                Toast.makeText(Register.this,  dataModel.getApi_status()+"registered success", Toast.LENGTH_SHORT).show();
+                               Intent i=new Intent(Register.this,HomeActivity.class);
+                                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(i);
                             }
 
                             @Override

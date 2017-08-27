@@ -24,54 +24,16 @@ public class splash extends AppCompatActivity {
 
         setContentView(R.layout.activity_splash);
 
-/*        if (LogInManager.getUserSession(splash.this).equals("")) {
-
-
-
-
-            APIManager.AddSession(splash.this, new APIManager.ResponseListener<SessionModel>() {
-                @Override
-                public void done(SessionModel dataModel) {
-                    if (dataModel.getSuccess()) {
-                        LogInManager.setUserSession(splash.this, dataModel.getData().getSession());
-                        Log.e("Sucsses", "Sucsses");
-
-                    }
-                    flag = 1;
-                }
-
-                @Override
-                public void failed(boolean fromConnection) {
-
-                }
-            });
-        }else {
-            flag=1;
-        }*/
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                /* Create an Intent that will start the Menu-Activity. */
-             /*   if (flag == 1) {
 
-                    if (LogInManager.isUserLoggedIn(splash.this, false, false)) {
-                        mainIntent = new Intent(splash.this, MainScreen.class);
-                    } else {
-                        mainIntent = new Intent(splash.this, LoginRegister.class);
-                    }*/
-
-                    // getWindow().setFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN, WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
-                    //   mainIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                    mainIntent=new Intent(splash.this,LoginScan.class);
+                    mainIntent=new Intent(splash.this,HomeActivity.class);
                     splash.this.startActivity(mainIntent);
                     splash.this.finish();
-                //}
-
 
             }
         }, SPLASH_DISPLAY_LENGTH);
-
-
 
     }
 

@@ -1,8 +1,10 @@
 package com.apps.square.mercato.fragments;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,11 +12,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.apps.square.mercato.R;
 import com.apps.square.mercato.activity.HomeActivity;
 import com.apps.square.mercato.activity.MyWallet;
 import com.apps.square.mercato.activity.RedeemPoints;
+import com.apps.square.mercato.tools.DataManager;
 
 import java.util.List;
 
@@ -112,11 +116,18 @@ public class fragment_menu extends Fragment {
         txtlogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 txtlogout.setBackgroundColor(Color.parseColor("#5a1d18"));//dark
                 txtoffers.setBackgroundColor(Color.parseColor("#b11e24"));
                 txtredeem.setBackgroundColor(Color.parseColor("#b11e24"));
                 txtwallet.setBackgroundColor(Color.parseColor("#b11e24"));
                 txtprofile.setBackgroundColor(Color.parseColor("#b11e24"));
+
+                DataManager.setStringSetting(getActivity(),"LoginKey","");
+
+                Toast.makeText(getActivity(), DataManager.getStringSetting(getActivity(),"LoginKey","") + "", Toast.LENGTH_SHORT).show();
+                Intent i=new Intent(getActivity(),HomeActivity.class);
+                startActivity(i);
             }
         });
         return rootview;

@@ -9,14 +9,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.apps.square.mercato.R;
 import com.apps.square.mercato.activity.AboutUs;
+import com.apps.square.mercato.activity.EditProfile;
+import com.apps.square.mercato.activity.LoginScan;
 import com.apps.square.mercato.activity.Menu;
 import com.apps.square.mercato.activity.Mer_Location;
 import com.apps.square.mercato.activity.MercatoPoints;
 import com.apps.square.mercato.activity.Products_Categories;
 import com.apps.square.mercato.activity.TotalReviews;
+import com.apps.square.mercato.tools.DataManager;
 
 import java.util.List;
 
@@ -31,6 +36,7 @@ public class HomeScreen extends Fragment {
     List<Integer> data;
     List<String> txtData;
     RelativeLayout joinus,menu,aboutus,products,ourlocation,reviews;
+    TextView join;
 
 
     public static Fragment newInstance() {
@@ -53,13 +59,25 @@ public class HomeScreen extends Fragment {
         products=(RelativeLayout)rootview.findViewById(R.id.products_container);
         ourlocation=(RelativeLayout)rootview.findViewById(R.id.location_container);
         reviews=(RelativeLayout)rootview.findViewById(R.id.reviews_container);
+        join=(TextView)rootview.findViewById(R.id.joinus_txt);
 
-
+        if (DataManager.getStringSetting(getActivity(),"LoginKey","") == ""){
+            join.setText("JOIN US");
+        }else if (DataManager.getStringSetting(getActivity(),"LoginKey","") != ""){
+            join.setText("PROFILE");
+        }
 
 
         joinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (DataManager.getStringSetting(getActivity(),"LoginKey","") == ""){
+                    Intent i=new Intent(getActivity(), LoginScan.class);
+                    startActivity(i);
+                }else if (DataManager.getStringSetting(getActivity(),"LoginKey","") != ""){
+                    Intent i=new Intent(getActivity(), EditProfile.class);
+                    startActivity(i);
+                }
 
 
             }
