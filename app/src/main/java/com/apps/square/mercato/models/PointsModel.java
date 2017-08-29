@@ -17,6 +17,15 @@ public class PointsModel implements Parcelable{
     String api_message;
     @SerializedName("data")
     List<PointsModel.DataModel> data;
+    String user_points;
+
+    public String getUser_points() {
+        return user_points;
+    }
+
+    public void setUser_points(String user_points) {
+        this.user_points = user_points;
+    }
 
     public int getApi_status() {
         return api_status;
@@ -43,8 +52,9 @@ public class PointsModel implements Parcelable{
     }
 
     protected PointsModel(Parcel in) {
-        api_status = in.readInt();
+        api_status  = in.readInt();
         api_message = in.readString();
+        user_points = in.readString();
         data = in.createTypedArrayList(PointsModel.DataModel.CREATOR);
     }
 
@@ -70,6 +80,7 @@ public class PointsModel implements Parcelable{
         parcel.writeInt(api_status);
         parcel.writeString(api_message);
         parcel.writeTypedList(data);
+        parcel.writeString(user_points);
     }
     public static class DataModel implements Parcelable{
 
