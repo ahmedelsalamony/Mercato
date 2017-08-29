@@ -69,7 +69,7 @@
         android:layout_below="@+id/head"
         android:weightSum="2"
         android:orientation="vertical"
-        android:background="@color/colorAccent"
+        android:background="@color/colorPrimary"
         >
         <LinearLayout
             android:layout_width="match_parent"
@@ -90,38 +90,48 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:background="@color/colorWhite"
-                android:orientation="horizontal"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:layout_marginTop="8dp"
+                android:background="@color/colorAccent"
                 >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="your points = "
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorWhite"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
                     android:gravity="center"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="18sp"
-                    ></TextView>
+                    android:layout_marginTop="8dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="your points = "
+                        android:gravity="center"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="18sp"
+                        ></TextView>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1000"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="18sp"
-                    android:id="@+id/userpoints"
-                    ></TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1000"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="18sp"
+                        android:id="@+id/userpoints"
+                        ></TextView>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=" points"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="18sp"
-                    ></TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" points"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="18sp"
+                        ></TextView>
+                </LinearLayout>
+
+
             </LinearLayout>
+
 
 
         </LinearLayout>
@@ -136,6 +146,7 @@
        android:gravity="center"
        android:stretchMode="columnWidth"
        android:layout_weight="1"
+
        >
        </GridView>
 

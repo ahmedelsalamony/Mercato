@@ -32,8 +32,6 @@ public class RedeemPoints extends AppCompatActivity {
         img_sources=new ArrayList<>();
         points_text=new ArrayList<>();
         getPoints();
-
-
     }
 
     public void getPoints() {

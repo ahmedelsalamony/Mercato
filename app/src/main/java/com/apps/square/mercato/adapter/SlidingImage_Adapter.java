@@ -56,7 +56,7 @@ public class SlidingImage_Adapter extends PagerAdapter {
         final ImageView imageView = (ImageView ) imageLayout
                 .findViewById(R.id.image);
         //.resize(Menu.width,Menu.height)
-        Picasso.with(context).load(IMAGES.get(position)).into(imageView);
+        Picasso.with(context).load(IMAGES.get(position)) .into(imageView);
         // Attach a PhotoViewAttacher, which takes care of all of the zooming functionality.
         mAttacher = new PhotoViewAttacher(imageView);
         view.addView(imageLayout, 0);
